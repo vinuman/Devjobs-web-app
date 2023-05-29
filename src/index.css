@@ -22,6 +22,10 @@ html {
   font-family: "Kumbh Sans", sans-serif;
 }
 
+body {
+  background-color: var(--light-grey);
+}
+
 h1 {
   font-size: 2rem;
 }
@@ -34,6 +38,8 @@ h2 {
   font-size: 1.4rem;
 }
 
+/* HEADER desktop */
+
 .App-header {
   background: url(./assets/desktop/bg-pattern-header.svg);
   width: 100%;
@@ -43,6 +49,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   padding: 0 12rem 0 12rem;
+  position: relative;
 }
 
 .logo {
@@ -51,51 +58,113 @@ h2 {
 }
 
 .color-theme-div {
-  width: 10%;
+  width: 8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 4.8rem;
-  height: 2.4rem;
+.color-theme-div > .sun-logo {
+  border-right: 1px solid black;
 }
 
-.toggle-switch input[type="checkbox"] {
-  display: none;
-}
-
-.slider {
+nav {
+  display: flex;
+  width: 80%;
+  height: 8rem;
+  border-radius: 1rem;
+  margin: 0 auto;
   position: absolute;
-  cursor: pointer;
-  top: 0;
+  top: 12rem;
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: var(--gray);
-  transition: 0.4s;
-  border-radius: 34px;
 }
 
-.slider:before {
+label {
   position: absolute;
-  content: "";
-  height: 1.4rem;
-  width: 1.4rem;
-  left: 0.5rem;
-  bottom: 0.5rem;
-  background-color: var(--very-dark-blue);
-  transition: 0.4s;
-  border-radius: 50%;
+  left: -99999px;
 }
 
-.toggle-switch input[type="checkbox"]:checked + .slider {
-  background-color: var(--gray);
+input {
+  font-size: 1.6rem;
+  color: rgba(25, 32, 45, 0.4);
+  letter-spacing: 0.15rem;
+  outline: none;
+  border: none;
+  border-right: 1px solid rgba(110, 128, 152, 0.3);
 }
 
-.toggle-switch input[type="checkbox"]:checked + .slider:before {
-  transform: translateX(2.4rem);
+input:active {
+  outline: none;
+}
+
+input::placeholder {
+  font-size: 1.6rem;
+}
+
+.search-field1 {
+  width: 40%;
+  position: relative;
+}
+
+.search-field1 > input {
+  width: 100%;
+  height: 100%;
+  padding-left: 6rem;
+}
+
+.search-icon {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  z-index: 1000;
+}
+
+.search-field2 {
+  width: 30%;
+  position: relative;
+}
+
+.search-field2 > input {
+  width: 100%;
+  height: 100%;
+  padding-left: 6rem;
+}
+
+.location-icon {
+  position: absolute;
+  top: 35%;
+  left: 5%;
+}
+
+.check-item {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+}
+
+.check-item > input {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: var(--light-violet);
+  margin-left: 1rem;
+}
+
+.check-item > p {
+  margin-left: 1rem;
+  font-weight: 700;
+}
+
+.btn {
+  background-color: #5964e0;
+  width: 12.3rem;
+  height: 4.8rem;
+  border: none;
+  border-radius: 1rem;
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 3rem;
 }
