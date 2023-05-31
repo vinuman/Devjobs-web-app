@@ -87,7 +87,6 @@ label {
 
 input {
   font-size: 1.6rem;
-  color: rgba(25, 32, 45, 0.4);
   letter-spacing: 0.15rem;
   outline: none;
   border: none;
@@ -100,6 +99,7 @@ input:active {
 
 input::placeholder {
   font-size: 1.6rem;
+  color: rgba(25, 32, 45, 0.4);
 }
 
 .search-field1 {
@@ -167,4 +167,62 @@ input::placeholder {
   font-weight: 700;
   cursor: pointer;
   margin-left: 3rem;
+}
+
+main {
+  margin: 12rem auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 35rem;
+  height: 22.8rem;
+  position: relative;
+  margin-bottom: 6rem;
+  background-color: #fff;
+  border-radius: 0.6rem;
+}
+
+.card > .logo-container {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card > .time {
+  display: flex;
+  padding-top: 2rem;
+}
+
+.card > .time > p {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-weight: 100;
+  color: var(--gray);
+}
+
+.card > p {
+  font-weight: 100;
+  color: var(--gray);
+}
+
+.card > h1,
+p,
+h2 {
+  padding-left: 2rem;
+  padding-top: 2rem;
+}
+
+.card > h2 {
+  color: var(--light-violet);
 }
