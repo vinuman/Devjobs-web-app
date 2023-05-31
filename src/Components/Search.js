@@ -1,5 +1,5 @@
-import searchBar from "./assets/desktop/icon-search.svg";
-import location from "./assets/desktop/icon-location.svg";
+import searchBar from "../assets/desktop/icon-search.svg";
+import location from "../assets/desktop/icon-location.svg";
 
 const Search = () => {
   return (

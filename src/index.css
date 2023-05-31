@@ -65,7 +65,12 @@ h2 {
 }
 
 .color-theme-div > .sun-logo {
-  border-right: 1px solid black;
+  border-right: 2px solid var(--light-grey);
+  padding-right: 2rem;
+  cursor: pointer;
+}
+.color-theme-div > .moon-logo {
+  cursor: pointer;
 }
 
 nav {
@@ -169,6 +174,11 @@ input::placeholder {
   margin-left: 3rem;
 }
 
+.btn:hover {
+  background-color: var(--light-violet);
+  color: var(--midnight);
+}
+
 main {
   margin: 12rem auto;
   width: 80%;
@@ -185,6 +195,7 @@ main {
   margin-bottom: 6rem;
   background-color: #fff;
   border-radius: 0.6rem;
+  cursor: pointer;
 }
 
 .card > .logo-container {
@@ -217,7 +228,7 @@ main {
 }
 
 .card > h1,
-p,
+.card p,
 h2 {
   padding-left: 2rem;
   padding-top: 2rem;

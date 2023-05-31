@@ -21,6 +21,9 @@ const Main = () => {
           <h2>{item.location}</h2>
         </div>
       ))}
+      <button className="btn" style={{ margin: "0 auto" }}>
+        Load More
+      </button>
     </main>
   );
 };
