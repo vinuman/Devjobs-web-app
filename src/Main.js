@@ -1,10 +1,48 @@
 import data from "./data.json";
+import { useState } from "react";
 
 const Main = () => {
+  const [visibleItems, setVisibleItems] = useState(12);
+  const totalItems = data.length;
+
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const handleCardClick = (item) => {
+    setSelectedItem(item);
+  };
+
+  const handleLoadMore = () => {
+    setVisibleItems(totalItems);
+  };
+
+  if (selectedItem) {
+    return (
+      <main className="card-page">
+        <div className="card-page-header">
+          <div
+            style={{ backgroundColor: selectedItem.logoBackground }}
+            className="page-logo-container"
+          >
+            <img src={selectedItem.logo} alt={selectedItem.company}></img>
+          </div>
+          <div className="company-name">
+            <h1>{selectedItem.company}</h1>
+            <p>{selectedItem.website}</p>
+          </div>
+          <button className="btn">Company Site</button>
+        </div>
+        <div className="card-page-content"></div>
+      </main>
+    );
+  }
   return (
     <main>
-      {data.map((item) => (
-        <div key={item.id} className="card">
+      {data.slice(0, visibleItems).map((item) => (
+        <div
+          key={item.id}
+          className="card"
+          onClick={() => handleCardClick(item)}
+        >
           <div
             style={{ backgroundColor: item.logoBackground }}
             className="logo-container"
@@ -21,7 +59,11 @@ const Main = () => {
           <h2>{item.location}</h2>
         </div>
       ))}
-      <button className="btn" style={{ margin: "0 auto" }}>
+      <button
+        onClick={handleLoadMore}
+        className="btn"
+        style={{ margin: "0 auto" }}
+      >
         Load More
       </button>
     </main>
