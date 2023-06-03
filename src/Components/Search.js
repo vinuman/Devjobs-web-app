@@ -1,7 +1,20 @@
 import searchBar from "../assets/desktop/icon-search.svg";
-import location from "../assets/desktop/icon-location.svg";
+import locationIcon from "../assets/desktop/icon-location.svg";
 
-const Search = ({ search, setSearch }) => {
+const Search = ({
+  search,
+  setSearch,
+  location,
+  setLocation,
+  searchBtn,
+  setSearchBtn,
+}) => {
+  const handleFilterInput = (e) => {
+    setSearchBtn(false);
+    setLocation(e.target.value);
+  };
+  console.log(searchBtn);
+  console.log(location);
   return (
     <>
       <nav>
@@ -9,21 +22,27 @@ const Search = ({ search, setSearch }) => {
           <img className="search-icon" src={searchBar}></img>
           <label htmlFor="search">Search</label>
           <input
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={() => handleFilterInput}
             type="text"
             placeholder="Filter by title, companies, expertise…"
           ></input>
         </div>
         <div className="search-field2">
-          <img className="location-icon" src={location}></img>
+          <img className="location-icon" src={locationIcon}></img>
           <label htmlFor="search">Search by full time</label>
-          <input type="text" placeholder="Filter by location…"></input>
+          <input
+            onChange={(e) => setLocation(e.target.value)}
+            type="text"
+            placeholder="Filter by location…"
+          ></input>
         </div>
         <div className="check-item">
           <label htmlFor="search">full time only</label>
           <input type="checkbox" />
           <p>Full Time only</p>
-          <button className="btn">Search</button>
+          <button onClick={() => setSearchBtn(true)} className="btn">
+            Search
+          </button>
         </div>
       </nav>
     </>

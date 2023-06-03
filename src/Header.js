@@ -4,7 +4,14 @@ import moon from "./assets/desktop/icon-moon.svg";
 import { useState } from "react";
 import Search from "./Components/Search";
 
-const Header = ({ search, setSearch }) => {
+const Header = ({
+  search,
+  setSearch,
+  location,
+  setLocation,
+  searchBtn,
+  setSearchBtn,
+}) => {
   const [checked, setChecked] = useState(false);
 
   const handleToggle = () => {
@@ -20,7 +27,14 @@ const Header = ({ search, setSearch }) => {
           <img className="moon-logo" src={moon}></img>
         </div>
       </header>
-      <Search search={search} setSearch={setSearch} />
+      <Search
+        search={search}
+        setSearch={setSearch}
+        location={location}
+        setLocation={setLocation}
+        searchBtn={searchBtn}
+        setSearchBtn={setSearchBtn}
+      />
     </>
   );
 };

@@ -4,11 +4,20 @@ import { useState } from "react";
 
 function App() {
   const [search, setSearch] = useState("");
+  const [location, setLocation] = useState("");
+  const [searchBtn, setSearchBtn] = useState(false);
   console.log(search);
   return (
     <div className="App">
-      <Header search={search} setSearch={setSearch} />
-      <Main search={search} />
+      <Header
+        location={location}
+        setLocation={setLocation}
+        search={search}
+        setSearch={setSearch}
+        searchBtn={searchBtn}
+        setSearchBtn={setSearchBtn}
+      />
+      <Main search={search} searchBtn={searchBtn} location={location} />
     </div>
   );
 }

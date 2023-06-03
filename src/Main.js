@@ -2,7 +2,7 @@ import data from "./data.json";
 import { useState } from "react";
 import PageContent from "./Pagecontent";
 
-const Main = ({ search }) => {
+const Main = ({ search, searchBtn, location }) => {
   const [visibleItems, setVisibleItems] = useState(12);
   const totalItems = data.length;
 
@@ -19,6 +19,13 @@ const Main = ({ search }) => {
   if (selectedItem) {
     return <PageContent selectedItem={selectedItem} />;
   }
+  if (searchBtn && location !== "") {
+    return (
+      <div>
+        <div></div>
+      </div>
+    );
+  }
 
   return (
     <main>
@@ -26,7 +33,10 @@ const Main = ({ search }) => {
         .filter((item) => {
           return search.toLowerCase() === ""
             ? item
-            : item.position.toLowerCase().includes(search);
+            : item.position.toLowerCase().includes(search) ||
+                item.company.toLowerCase().includes(search) ||
+                item.location.toLowerCase().includes(search) ||
+                item.contract.toLowerCase().includes(search);
         })
         .slice(0, visibleItems)
         .map((item) => (
@@ -54,7 +64,7 @@ const Main = ({ search }) => {
       <button
         onClick={handleLoadMore}
         className="btn"
-        style={{ margin: "0 auto" }}
+        /* style={{ margin: "0 auto" }} */
       >
         Load More
       </button>
