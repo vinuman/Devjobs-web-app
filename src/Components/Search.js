@@ -1,7 +1,7 @@
 import searchBar from "../assets/desktop/icon-search.svg";
 import location from "../assets/desktop/icon-location.svg";
 
-const Search = () => {
+const Search = ({ search, setSearch }) => {
   return (
     <>
       <nav>
@@ -9,6 +9,7 @@ const Search = () => {
           <img className="search-icon" src={searchBar}></img>
           <label htmlFor="search">Search</label>
           <input
+            onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Filter by title, companies, expertise…"
           ></input>
