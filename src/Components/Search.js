@@ -10,10 +10,9 @@ const Search = ({
   setSearchBtn,
 }) => {
   const handleFilterInput = (e) => {
-    setSearchBtn(false);
     setLocation(e.target.value);
+    setSearchBtn(false);
   };
-  console.log(searchBtn);
   console.log(location);
   return (
     <>
@@ -22,7 +21,7 @@ const Search = ({
           <img className="search-icon" src={searchBar}></img>
           <label htmlFor="search">Search</label>
           <input
-            onChange={() => handleFilterInput}
+            onChange={(e) => setSearch(e.target.value)}
             type="text"
             placeholder="Filter by title, companies, expertise…"
           ></input>
@@ -31,7 +30,7 @@ const Search = ({
           <img className="location-icon" src={locationIcon}></img>
           <label htmlFor="search">Search by full time</label>
           <input
-            onChange={(e) => setLocation(e.target.value)}
+            onChange={handleFilterInput}
             type="text"
             placeholder="Filter by location…"
           ></input>
