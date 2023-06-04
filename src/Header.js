@@ -9,8 +9,10 @@ const Header = ({
   setSearch,
   location,
   setLocation,
-  searchBtn,
-  setSearchBtn,
+  isOpen,
+  setIsOpen,
+  closeModal,
+  openModal,
 }) => {
   const [checked, setChecked] = useState(false);
 
@@ -32,8 +34,10 @@ const Header = ({
         setSearch={setSearch}
         location={location}
         setLocation={setLocation}
-        searchBtn={searchBtn}
-        setSearchBtn={setSearchBtn}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        closeModal={closeModal}
+        openModal={openModal}
       />
     </>
   );

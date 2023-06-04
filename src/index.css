@@ -346,3 +346,69 @@ h2 {
   line-height: 3rem;
   font-size: 1.6rem;
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border-radius: 4px;
+  z-index: 100000;
+  padding: 4rem;
+}
+
+.modal-content > h1 {
+  font-size: 3rem;
+  padding-bottom: 2rem;
+}
+
+.close {
+  position: absolute;
+  top: 5rem;
+  right: 20rem;
+  cursor: pointer;
+  font-size: 12rem;
+  color: #fff;
+}
+
+.check-item-locations {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  justify-content: flex-start;
+}
+
+.check-item-locations > input {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: var(--light-violet);
+  margin-left: 1rem;
+}
+
+.check-item-locations > p {
+  margin-left: 1rem;
+  font-weight: 700;
+}
+
+.btn-filter {
+  margin-top: 2rem;
+  width: 24rem;
+  margin-left: 0;
+}

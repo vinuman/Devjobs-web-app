@@ -2,7 +2,7 @@ import data from "./data.json";
 import { useState } from "react";
 import PageContent from "./Pagecontent";
 
-const Main = ({ search, searchBtn, location }) => {
+const Main = ({ search }) => {
   const [visibleItems, setVisibleItems] = useState(12);
   const totalItems = data.length;
 
@@ -18,13 +18,6 @@ const Main = ({ search, searchBtn, location }) => {
 
   if (selectedItem) {
     return <PageContent selectedItem={selectedItem} />;
-  }
-  if (searchBtn && location !== "") {
-    return (
-      <div>
-        <div></div>
-      </div>
-    );
   }
 
   return (

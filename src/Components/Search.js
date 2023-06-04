@@ -1,19 +1,15 @@
 import searchBar from "../assets/desktop/icon-search.svg";
 import locationIcon from "../assets/desktop/icon-location.svg";
+import Modal from "./Modal";
 
 const Search = ({
   search,
   setSearch,
-  location,
-  setLocation,
-  searchBtn,
-  setSearchBtn,
+  isOpen,
+  setIsOpen,
+  closeModal,
+  openModal,
 }) => {
-  const handleFilterInput = (e) => {
-    setLocation(e.target.value);
-    setSearchBtn(false);
-  };
-  console.log(location);
   return (
     <>
       <nav>
@@ -23,14 +19,14 @@ const Search = ({
           <input
             onChange={(e) => setSearch(e.target.value)}
             type="text"
-            placeholder="Filter by title, companies, expertise…"
+            placeholder="Search by title, companies, expertise…"
           ></input>
         </div>
         <div className="search-field2">
           <img className="location-icon" src={locationIcon}></img>
           <label htmlFor="search">Search by full time</label>
           <input
-            onChange={handleFilterInput}
+            onClick={() => openModal()}
             type="text"
             placeholder="Filter by location…"
           ></input>
@@ -39,11 +35,15 @@ const Search = ({
           <label htmlFor="search">full time only</label>
           <input type="checkbox" />
           <p>Full Time only</p>
-          <button onClick={() => setSearchBtn(true)} className="btn">
-            Search
-          </button>
+          <button className="btn">Search</button>
         </div>
       </nav>
+      <Modal
+        isOpen={isOpen}
+        setIsOpen={isOpen}
+        closeModal={closeModal}
+        openModal={openModal}
+      />
     </>
   );
 };

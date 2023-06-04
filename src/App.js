@@ -4,20 +4,30 @@ import { useState } from "react";
 
 function App() {
   const [search, setSearch] = useState("");
-  const [location, setLocation] = useState("");
-  const [searchBtn, setSearchBtn] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeModal = () => {
+    setIsOpen(false);
+    document.querySelector("main").style.display = "";
+  };
+
+  const openModal = () => {
+    setIsOpen(true);
+    document.querySelector("main").style.display = "none";
+  };
+
   console.log(search);
   return (
     <div className="App">
       <Header
-        location={location}
-        setLocation={setLocation}
         search={search}
         setSearch={setSearch}
-        searchBtn={searchBtn}
-        setSearchBtn={setSearchBtn}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        closeModal={closeModal}
+        openModal={openModal}
       />
-      <Main search={search} searchBtn={searchBtn} location={location} />
+      <Main search={search} />
     </div>
   );
 }
