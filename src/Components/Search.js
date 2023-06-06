@@ -22,7 +22,7 @@ const Search = ({
             placeholder="Search by title, companies, expertise…"
           ></input>
         </div>
-        <div className="search-field2">
+        <div onClick={() => openModal()} className="search-field2">
           <img className="location-icon" src={locationIcon}></img>
           <label htmlFor="search">Search by full time</label>
           <input

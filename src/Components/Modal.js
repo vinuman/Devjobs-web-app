@@ -1,5 +1,6 @@
 import React from "react";
 import data from "../data.json";
+import { useState } from "react";
 
 const Modal = ({ isOpen, setIsOpen, closeModal }) => {
   console.log(isOpen);
@@ -10,6 +11,12 @@ const Modal = ({ isOpen, setIsOpen, closeModal }) => {
       existingLocations.push(item.location);
     }
   });
+
+  const filterList = [];
+
+  const handleCheckBoxItems = (item) => {
+    filterList.push(item);
+  };
   return (
     <>
       {isOpen && (
@@ -21,7 +28,10 @@ const Modal = ({ isOpen, setIsOpen, closeModal }) => {
             <h1>Select Locations</h1>
             {existingLocations.map((item, index) => (
               <div key={index} className="check-item-locations">
-                <input type="checkbox" />
+                <input
+                  onChange={() => handleCheckBoxItems(item)}
+                  type="checkbox"
+                />
                 <p>{item}</p>
               </div>
             ))}
