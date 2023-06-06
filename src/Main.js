@@ -2,7 +2,12 @@ import data from "./data.json";
 import { useState } from "react";
 import PageContent from "./Pagecontent";
 
-const Main = ({ search }) => {
+const Main = ({
+  search,
+  filterList,
+  handleCheckBoxItems,
+  filterByLocation,
+}) => {
   const [visibleItems, setVisibleItems] = useState(12);
   const totalItems = data.length;
 
@@ -20,6 +25,9 @@ const Main = ({ search }) => {
     return <PageContent selectedItem={selectedItem} />;
   }
 
+  if (filterByLocation) {
+    return <div></div>;
+  }
   return (
     <main>
       {data

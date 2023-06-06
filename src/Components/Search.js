@@ -9,6 +9,10 @@ const Search = ({
   setIsOpen,
   closeModal,
   openModal,
+  handleCheckBoxItems,
+  filterList,
+  filterByLocation,
+  setFilterByLocation,
 }) => {
   return (
     <>
@@ -43,6 +47,10 @@ const Search = ({
         setIsOpen={isOpen}
         closeModal={closeModal}
         openModal={openModal}
+        handleCheckBoxItems={handleCheckBoxItems}
+        filterList={filterList}
+        filterByLocation={filterByLocation}
+        setFilterByLocation={setFilterByLocation}
       />
     </>
   );

@@ -2,9 +2,15 @@ import React from "react";
 import data from "../data.json";
 import { useState } from "react";
 
-const Modal = ({ isOpen, setIsOpen, closeModal }) => {
-  console.log(isOpen);
-
+const Modal = ({
+  isOpen,
+  setIsOpen,
+  closeModal,
+  handleCheckBoxItems,
+  filterList,
+  filterByLocation,
+  setFilterByLocation,
+}) => {
   const existingLocations = [];
   const uniqueLocation = data.filter((item) => {
     if (!existingLocations.includes(item.location)) {
@@ -12,11 +18,12 @@ const Modal = ({ isOpen, setIsOpen, closeModal }) => {
     }
   });
 
-  const filterList = [];
-
-  const handleCheckBoxItems = (item) => {
-    filterList.push(item);
+  const handleFilterByLocation = () => {
+    setFilterByLocation(true);
+    closeModal();
+    console.log(filterByLocation);
   };
+
   return (
     <>
       {isOpen && (
@@ -35,7 +42,9 @@ const Modal = ({ isOpen, setIsOpen, closeModal }) => {
                 <p>{item}</p>
               </div>
             ))}
-            <button className="btn btn-filter">Filter</button>
+            <button onClick={handleFilterByLocation} className="btn btn-filter">
+              Filter
+            </button>
           </div>
         </div>
       )}

@@ -5,10 +5,11 @@ import { useState } from "react";
 function App() {
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [filterByLocation, setFilterByLocation] = useState(false);
 
   const closeModal = () => {
     setIsOpen(false);
-    document.querySelector("main").style.display = "";
+    document.querySelector("main").style.display = "flex";
   };
 
   const openModal = () => {
@@ -16,7 +17,12 @@ function App() {
     document.querySelector("main").style.display = "none";
   };
 
-  console.log(search);
+  const filterList = [];
+
+  const handleCheckBoxItems = (item) => {
+    filterList.push(item);
+  };
+
   return (
     <div className="App">
       <Header
@@ -26,8 +32,17 @@ function App() {
         setIsOpen={setIsOpen}
         closeModal={closeModal}
         openModal={openModal}
+        filterList={filterList}
+        handleCheckBoxItems={handleCheckBoxItems}
+        filterByLocation={filterByLocation}
+        setFilterByLocation={setFilterByLocation}
       />
-      <Main search={search} />
+      <Main
+        search={search}
+        filterList={filterList}
+        handleCheckBoxItems={handleCheckBoxItems}
+        filterByLocation={filterByLocation}
+      />
     </div>
   );
 }

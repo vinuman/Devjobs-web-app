@@ -13,6 +13,10 @@ const Header = ({
   setIsOpen,
   closeModal,
   openModal,
+  handleCheckBoxItems,
+  filterList,
+  filterByLocation,
+  setFilterByLocation,
 }) => {
   const [checked, setChecked] = useState(false);
 
@@ -38,6 +42,10 @@ const Header = ({
         setIsOpen={setIsOpen}
         closeModal={closeModal}
         openModal={openModal}
+        handleCheckBoxItems={handleCheckBoxItems}
+        filterList={filterList}
+        filterByLocation={filterByLocation}
+        setFilterByLocation={setFilterByLocation}
       />
     </>
   );
