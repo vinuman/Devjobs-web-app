@@ -25,9 +25,39 @@ const Main = ({
     return <PageContent selectedItem={selectedItem} />;
   }
 
+  console.log(filterList);
+
   if (filterByLocation) {
-    return <div></div>;
+    return (
+      <>
+        {data
+          .filter((item) => filterList.includes(item.location))
+          .map((item) => (
+            <div
+              key={item.id}
+              className="card"
+              onClick={() => handleCardClick(item)}
+            >
+              <div
+                style={{ backgroundColor: item.logoBackground }}
+                className="logo-container"
+              >
+                <img src={item.logo} alt={item.company}></img>
+              </div>
+
+              <div className="time">
+                <p>{item.postedAt}</p>
+                <p>{item.contract}</p>
+              </div>
+              <h1>{item.position}</h1>
+              <p>{item.company}</p>
+              <h2>{item.location}</h2>
+            </div>
+          ))}
+      </>
+    );
   }
+
   return (
     <main>
       {data
