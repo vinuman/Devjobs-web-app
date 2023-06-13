@@ -21,6 +21,8 @@ function App() {
 
   const handleCheckBoxItems = (item) => {
     filterList.push(item);
+    console.log(filterList);
+    setSearch(item);
   };
 
   return (

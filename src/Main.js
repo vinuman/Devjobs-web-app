@@ -25,13 +25,13 @@ const Main = ({
     return <PageContent selectedItem={selectedItem} />;
   }
 
-  console.log(filterList);
-
   if (filterByLocation) {
     return (
-      <>
+      <main>
         {data
-          .filter((item) => filterList.includes(item.location))
+          .filter((item) => {
+            return filterList.includes(item.location) ? item : "";
+          })
           .map((item) => (
             <div
               key={item.id}
@@ -54,7 +54,7 @@ const Main = ({
               <h2>{item.location}</h2>
             </div>
           ))}
-      </>
+      </main>
     );
   }
 
